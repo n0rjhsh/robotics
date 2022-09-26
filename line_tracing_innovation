@@ -1,0 +1,169 @@
+int _ = _;
+int _ = _;
+int _ = _;
+int _ = _;
+int _ = _;
+
+int _ = _; // A1
+int _ = _; // A2
+int _ = _; // A3
+int _ = _; // A4
+int _ = _; // A5
+
+void setup()
+{
+  _(_, OUTPUT);
+  _(_, OUTPUT);
+  _(_, OUTPUT);
+  _(_, OUTPUT);
+
+  pinMode(_, INPUT);
+  pinMode(_, INPUT);
+  pinMode(_, INPUT);
+  pinMode(_, INPUT);
+  pinMode(_, INPUT);
+
+  while (digitalRead(_) == 0)
+  {
+    stop();
+  }
+}
+
+void _(int a, int b)
+{
+  _(_, HIGH);
+  _(_, a);
+  digitalWrite(_, HIGH);
+  analogWrite(_, b);
+}
+
+void _(int a, int b)
+{
+  _(_, LOW);
+  _(_, a);
+  digitalWrite(_, LOW);
+  analogWrite(_, b);
+}
+
+void _(int a, int b)
+{
+  _(_, LOW);
+  _(_, a);
+  digitalWrite(_, HIGH);
+  analogWrite(_, b);
+}
+
+void _(int a, int b)
+{
+  _(_, HIGH);
+  _(_, a);
+  digitalWrite(_, LOW);
+  analogWrite(_, b);
+}
+
+void stop()
+{
+  _(_, 0);
+  analogWrite(_, 0);
+
+void loop()
+{
+  int _ = _(_);
+  int _ = _(_);
+  int _ = _(_);
+  int _ = digitalRead(_);
+  int _ = digitalRead(_);
+
+  if (s1 == LOW && s2 == LOW && s3 == HIGH && s4 == LOW && s5 == LOW)
+  { //12*45
+    forward(_, _);
+  }
+  if (s1 == LOW && s2 == LOW && s3 == HIGH && s4 == HIGH && s5 == LOW)
+  { //12**5
+    forward(_, _);
+  }
+  if (s1 == LOW && s2 == HIGH && s3 == HIGH && s4 == LOW && s5 == LOW)
+  { //1**45
+    forward(_, _);
+  }
+  if (s1 == LOW && s2 == HIGH && s3 == HIGH && s4 == HIGH && s5 == LOW)
+  { //1***5
+    forward(_, _);
+  }
+  if (s1 == LOW && s2 == LOW && s3 == LOW && s4 == HIGH && s5 == LOW)
+  { //123*5
+    forward(_, _);
+  }
+  if (s1 == LOW && s2 == HIGH && s3 == LOW && s4 == LOW && s5 == LOW)
+  { //1*345
+    forward(_, _);
+  }
+  if (s1 == HIGH && s2 == HIGH && s3 == LOW && s4 == LOW && s5 == LOW)
+  { //**345
+    left(_, _);
+  }
+  if (s1 == LOW && s2 == LOW && s3 == LOW && s4 == HIGH && s5 == HIGH)
+  { //123**
+    right(_, _);
+  }
+  if (s1 == HIGH && s2 == LOW && s3 == LOW && s4 == LOW && s5 == LOW)
+  { //*2345
+    left(_, _);
+    delay(_);
+    stop();
+    delay(_);
+    left(_, _);
+    delay(_);
+  }
+  if (s1 == LOW && s2 == LOW && s3 == LOW && s4 == LOW && s5 == HIGH)
+  { //1234*
+    right(_, _);
+  }
+  if (s1 == LOW && s2 == LOW && s3 == LOW && s4 == LOW && s5 == LOW)
+  { //12345
+    right(_, _);
+  }
+
+  if (s1 == HIGH && s2 == HIGH && s3 == HIGH && s4 == LOW && s5 == LOW)
+  { //***45
+    left(_, _);
+    delay(_);
+    stop();
+    delay(_);
+    left(_, _);
+    delay(_);
+  }
+  if (s1 == LOW && s2 == LOW && s3 == HIGH && s4 == HIGH && s5 == HIGH)
+  { //12***
+    right(_, _);
+  }
+  if (s1 == LOW && s2 == LOW && s3 == HIGH && s4 == HIGH && s5 == HIGH)
+  { //*23**
+    right(_, _);
+  }
+
+  if (s1 == LOW && s2 == HIGH && s3 == HIGH && s4 == HIGH && s5 == HIGH)
+  { //1****
+    forward(_, _);
+    delay(_);
+    stop();
+    delay(_);
+    right(_, _);
+    delay(_);
+  }
+  if (s1 == HIGH && s2 == HIGH && s3 == HIGH && s4 == HIGH && s5 == LOW)
+  { //****5
+    forward(_, _);
+  }
+  if (s1 == HIGH && s2 == HIGH && s3 == HIGH && s4 == HIGH && s5 == HIGH)
+  { //*****
+    stop();
+    delay(_);
+    forward(_, _);
+    delay(_);
+    right(_, _);
+    delay(_);
+    forward(_, _);
+    delay(_);
+  }
+}
