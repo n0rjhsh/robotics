@@ -1,0 +1,58 @@
+int _ = _;
+int _ = _;
+int _ = _;
+int _ = _;
+
+void setup()
+{
+  Serial.begin(9600);
+  _(_, OUTPUT);
+  _(_, OUTPUT);
+  _(_, OUTPUT);
+  _(_, OUTPUT);
+}
+
+void _(int a, int b)
+{
+  _(_, HIGH);
+  _(_, a);
+  digitalWrite(_, HIGH);
+  analogWrite(_, b);
+}
+
+void _(int a, int b)
+{
+  _(_, LOW);
+  _(_, a);
+  digitalWrite(_, LOW);
+  analogWrite(_, b);
+}
+
+void _(int a, int b)
+{
+  _(_, LOW);
+  _(_, a);
+  digitalWrite(_, HIGH);
+  analogWrite(_, b);
+}
+
+void _(int a, int b)
+{
+  _(_, HIGH);
+  _(_, a);
+  digitalWrite(_, LOW);
+  analogWrite(_, b);
+}
+
+void stop()
+{
+  _(_, 0);
+  analogWrite(_, 0);
+}
+
+void loop() {
+  stop();
+  delay(_);
+  _(_, _); // Basic Robot Movement
+  delay(_);
+}
