@@ -70,22 +70,6 @@ void stop()
   analogWrite(_, 0);
 }
 
-void junction() 
-{
-  switch (flag) 
-  {
-    case 1 :
-      _(_, _);
-      delay(_);
-      break;
-    case 2:
-      _(_, _);
-      delay(_);
-      _(_, _);
-      delay(_);
-      break;
-  }
-}
 
 void loop() {
   int _ = digitalRead(_);
@@ -165,5 +149,22 @@ void loop() {
   { //****5
     flag++;
     junction();
+  }
+}
+
+void junction() 
+{
+  switch (flag) 
+  {
+    case 1 :
+      _(_, _);
+      delay(_);
+      break;
+    case 2:
+      _(_, _);
+      delay(_);
+      _(_, _);
+      delay(_);
+      break;
   }
 }
