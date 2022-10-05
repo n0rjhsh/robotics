@@ -1,8 +1,8 @@
-int _ = _;
-int _ = _;
-int _ = _;
-int _ = _;
-int _ = _;
+int dirR = 4;
+int speedR = 5;
+int dirL = 7;
+int speedL = 6;
+int pb = 8;
 
 int _ = _;
 int _ = _;
@@ -13,11 +13,11 @@ int _ = _;
 
 void setup() 
 {
-  _(_, _);
-  _(_, _);
-  pinMode(_, OUTPUT);
-  pinMode(_, OUTPUT);
-  pinMode(_, INPUT);
+  pinMode(dirR, OUTPUT);
+  pinMode(speedR, OUTPUT);
+  pinMode(dirL, OUTPUT);
+  pinMode(speedL, OUTPUT);
+  pinMode(pb, INPUT);
 
   pinMode(_, INPUT);
   pinMode(_, INPUT);
@@ -25,48 +25,48 @@ void setup()
   pinMode(_, INPUT);
   pinMode(_, INPUT);
 
-  while (_(_) == 0)
+  while (digitalRead(pb) == 0)
   {
     stop();
   }
 }
 
-void _(int a, int b) //a=right motor, b=left motor
+void forward(int a, int b) //a=right motor, b=left motor
 {
-  _(_, _);
-  _(_, a);
-  digitalWrite(_, _);
-  analogWrite(_, b);
+  digitalWrite(dirR, HIGH);
+  analogWrite(speedR, a);
+  digitalWrite(dirL, HIGH);
+  analogWrite(speedL, b);
 }
 
-void _(int a, int b) //a=right motor, b=left motor
+void backward(int a, int b) //a=right motor, b=left motor
 {
-  _(_, _);
-  _(_, a);
-  digitalWrite(_, _);
-  analogWrite(_, b);
+  digitalWrite(dirR, LOW);
+  analogWrite(speedR, a);
+  digitalWrite(dirL, LOW);
+  analogWrite(speedL, b);
 }
 
-void _(int a, int b) //a=right motor, b=left motor
+void right(int a, int b) //a=right motor, b=left motor
 {
-  _(_, _);
-  _(_, a);
-  digitalWrite(_, _);
-  analogWrite(_, b);
+  digitalWrite(dirR, LOW);
+  analogWrite(speedR, a);
+  digitalWrite(dirL, HIGH);
+  analogWrite(speedL, b);
 }
 
-void _(int a, int b) //a=right motor, b=left motor
+void left(int a, int b) //a=right motor, b=left motor
 {
-  _(_, _);
-  _(_, a);
-  digitalWrite(_, _);
-  analogWrite(_, b);
+  digitalWrite(dirR, HIGH);
+  analogWrite(speedR, a);
+  digitalWrite(dirL, LOW);
+  analogWrite(speedL, b);
 }
 
 void stop() 
 {
-  _(_, _);
-  analogWrite(_, 0);
+  analogWrite(speedR, 0);
+  analogWrite(speedL, 0);
 }
 
 void loop() 
@@ -137,8 +137,8 @@ void loop()
   { //****5
     forward(_, _);
   }
-  if (s1 == HIGH && s2 == HIGH && s3 == HIGH && s4 == HIGH && s5 == HIGH) 
+  /*if (s1 == HIGH && s2 == HIGH && s3 == HIGH && s4 == HIGH && s5 == HIGH) 
   { //*****
     left(_, _);
-  }
+  }*/
 }
