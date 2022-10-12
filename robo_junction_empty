@@ -1,160 +1,160 @@
-int _ = _;
-int _ = _;
-int _ = _;
-int _ = _;
-int _ = _;
+int dirR = 4;
+int speedR = 5;
+int dirL = 7;
+int speedL = 6;
+int pb = 8;
 
-int _ = _;
-int _ = _;
-int _ = _;
-int _ = _;
-int _ = _;
+int sen1 = 15;
+int sen2 = 16;
+int sen3 = 17;
+int sen4 = 18;
+int sen5 = 19;
 
 int flag = 0;
 
-void setup() 
+void setup()
 {
-  _(_, _);
-  _(_, _);
-  pinMode(_, OUTPUT);
-  pinMode(_, OUTPUT);
-  pinMode(_, INPUT);
+  pinMode(dirR, OUTPUT);
+  pinMode(speedR, OUTPUT);
+  pinMode(dirL, OUTPUT);
+  pinMode(speedL, OUTPUT);
+  pinMode(pb, INPUT);
 
-  pinMode(_, INPUT);
-  pinMode(_, INPUT);
-  pinMode(_, INPUT);
-  pinMode(_, INPUT);
-  pinMode(_, INPUT);
+  pinMode(sen1, INPUT);
+  pinMode(sen2, INPUT);
+  pinMode(sen3, INPUT);
+  pinMode(sen4, INPUT);
+  pinMode(sen5, INPUT);
 
-  while (_(_) == 0)
+  while (digitalread(pb) == 0)
   {
     stop();
   }
 }
 
-void _(int a, int b) //a=right motor, b=left motor
+void forward(int a, int b) //a=right motor, b=left motor
 {
-  _(_, _);
-  _(_, a);
-  digitalWrite(_, _);
-  analogWrite(_, b);
+  digitalWrite(dirR, HIGH);
+  analogWrite(speedR, a);
+  digitalWrite(dirL, HIGH);
+  analogWrite(speedL, b);
 }
 
-void _(int a, int b) //a=right motor, b=left motor
+void backward(int a, int b) //a=right motor, b=left motor
 {
-  _(_, _);
-  _(_, a);
-  digitalWrite(_, _);
-  analogWrite(_, b);
+  digitalWrite(dirR, LOW);
+  analogWrite(speedR, a);
+  digitalWrite(dirL, LOW);
+  analogWrite(speedL, b);
 }
 
-void _(int a, int b) //a=right motor, b=left motor
+void right(int a, int b) //a=right motor, b=left motor
 {
-  _(_, _);
-  _(_, a);
-  digitalWrite(_, _);
-  analogWrite(_, b);
+  digitalWrite(dirR, LOW);
+  analogWrite(speedR, a);
+  digitalWrite(dirL, HIGH);
+  analogWrite(speedL, b);
 }
 
-void _(int a, int b) //a=right motor, b=left motor
+void left(int a, int b) //a=right motor, b=left motor
 {
-  _(_, _);
-  _(_, a);
-  digitalWrite(_, _);
-  analogWrite(_, b);
+  digitalWrite(dirR, HIGH);
+  analogWrite(speedR, a);
+  digitalWrite(dirL, LOW);
+  analogWrite(speedL, b);
 }
 
-void stop() 
+void stop()
 {
-  _(_, _);
-  analogWrite(_, 0);
+  analogWrite(speedR, 0);
+  analogWrite(speedL, 0);
 }
 
 
 void loop() {
-  int _ = digitalRead(_);
-  int _ = digitalRead(_);
-  int _ = digitalRead(_);
-  int _ = digitalRead(_);
-  int _ = digitalRead(_);
+  int s1 = digitalRead(sen1);
+  int s2 = digitalRead(sen2);
+  int s3 = digitalRead(sen3);
+  int s4 = digitalRead(sen4);
+  int s5 = digitalRead(sen5);
 
   if (s1 == LOW && s2 == LOW && s3 == HIGH && s4 == LOW && s5 == LOW) 
   { //12*45
-    forward(_, _);
+    forward(100, 100);
   }
   if (s1 == LOW && s2 == LOW && s3 == HIGH && s4 == HIGH && s5 == LOW) 
   { //12**5
-    forward(_, _);
+    forward(80, 100);
   }
   if (s1 == LOW && s2 == HIGH && s3 == HIGH && s4 == LOW && s5 == LOW) 
   { //1**45
-    forward(_, _);
+    forward(100, 80);
   }
   if (s1 == LOW && s2 == HIGH && s3 == HIGH && s4 == HIGH && s5 == LOW) 
   { //1***5
-    forward(_, _);
+    forward(100, 100);
   }
   if (s1 == LOW && s2 == LOW && s3 == LOW && s4 == HIGH && s5 == LOW) 
   { //123*5
-    forward(_, _);
+    forward(75, 100);
   }
   if (s1 == LOW && s2 == HIGH && s3 == LOW && s4 == LOW && s5 == LOW) 
   { //1*345
-    forward(_, _);
+    forward(100, 75);
   }
   if (s1 == HIGH && s2 == HIGH && s3 == LOW && s4 == LOW && s5 == LOW) 
   { //**345
-    forward(_, _);
+    forward(100, 70);
   }
   if (s1 == LOW && s2 == LOW && s3 == LOW && s4 == HIGH && s5 == HIGH) 
   { //123**
-    forward(_, _);
+    forward(70, 100);
   }
   if (s1 == HIGH && s2 == LOW && s3 == LOW && s4 == LOW && s5 == LOW) 
   { //*2345
-    forward(_, _);
+    forward(100, 65);
   }
   if (s1 == LOW && s2 == LOW && s3 == LOW && s4 == LOW && s5 == HIGH) 
   { //1234*
-    forward(_, _);
+    forward(65, 100);
   }
-  if (s1 == LOW && s2 == LOW && s3 == LOW && s4 == LOW && s5 == LOW) 
+  if (s1 == LOW && s2 == LOW && s3 == LOW && s4 == LOW && s5 == LOW)
   { //12345
     right(100, 100);
   }
 
-//Flag for junctions
+  //Flag for junctions
 
-  if (s1 == HIGH && s2 == HIGH && s3 == HIGH && s4 == HIGH && s5 == HIGH) 
+  if (s1 == HIGH && s2 == HIGH && s3 == HIGH && s4 == HIGH && s5 == HIGH)
   { //*****
     flag++;
     junction();
   }
-  if (s1 == HIGH && s2 == HIGH && s3 == HIGH && s4 == LOW && s5 == LOW) 
+  if (s1 == HIGH && s2 == HIGH && s3 == HIGH && s4 == LOW && s5 == LOW)
   { //***45
     flag++;
     junction();
   }
-  if (s1 == LOW && s2 == LOW && s3 == HIGH && s4 == HIGH && s5 == HIGH) 
+  if (s1 == LOW && s2 == LOW && s3 == HIGH && s4 == HIGH && s5 == HIGH)
   { //12***
     flag++;
     junction();
   }
-  if (s1 == LOW && s2 == HIGH && s3 == HIGH && s4 == HIGH && s5 == HIGH) 
+  if (s1 == LOW && s2 == HIGH && s3 == HIGH && s4 == HIGH && s5 == HIGH)
   { //1****
     flag++;
     junction();
   }
-  if (s1 == HIGH && s2 == HIGH && s3 == HIGH && s4 == HIGH && s5 == LOW) 
+  if (s1 == HIGH && s2 == HIGH && s3 == HIGH && s4 == HIGH && s5 == LOW)
   { //****5
     flag++;
     junction();
   }
 }
 
-void junction() 
+void junction()
 {
-  switch (flag) 
+  switch (flag)
   {
     case 1 :
       _(_, _);
