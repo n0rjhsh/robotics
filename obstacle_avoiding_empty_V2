@@ -1,7 +1,7 @@
-int _ = _;
-int _ = _;
-int _ = _;
-int _ = _;
+int dirR = 4;
+int speedR = 5;
+int dirL = 7;
+int speedL = 6;
 
 int _ = _;
 int _ = _;
@@ -10,51 +10,51 @@ int _;
 
 void setup()
 {
-  pinMode(_, OUTPUT);
-  pinMode(_, OUTPUT);
-  pinMode(_, OUTPUT);
-  pinMode(_, OUTPUT);
+  pinMode(dirR, OUTPUT);
+  pinMode(speedR, OUTPUT);
+  pinMode(dirL, OUTPUT);
+  pinMode(speedL, OUTPUT);
   pinMode(_, OUTPUT); //ultrasonic trig pin
   pinMode(_, INPUT); //ultrasonic echo pin
   Serial.begin(9600);
 }
 
-void _(int a, int b) //a=right motor, b=left motor
+void forward(int a, int b) //a=right motor, b=left motor
 {
-  _(_, _);
-  _(_, a);
-  digitalWrite(_, _);
-  analogWrite(_, b);
+  digitalWrite(dirR, HIGH);
+  analogWrite(speedR, a);
+  digitalWrite(dirL, HIGH);
+  analogWrite(speedL, b);
 }
 
-void _(int a, int b) //a=right motor, b=left motor
+void backward(int a, int b) //a=right motor, b=left motor
 {
-  _(_, _);
-  _(_, a);
-  digitalWrite(_, _);
-  analogWrite(_, b);
+  digitalWrite(dirR, LOW);
+  analogWrite(speedR, a);
+  digitalWrite(dirL, LOW);
+  analogWrite(speedL, b);
 }
 
-void _(int a, int b) //a=right motor, b=left motor
+void right(int a, int b) //a=right motor, b=left motor
 {
-  _(_, _);
-  _(_, a);
-  digitalWrite(_, _);
-  analogWrite(_, b);
+  digitalWrite(dirR, LOW);
+  analogWrite(speedR, a);
+  digitalWrite(dirL, HIGH);
+  analogWrite(speedL, b);
 }
 
-void _(int a, int b) //a=right motor, b=left motor
+void left(int a, int b) //a=right motor, b=left motor
 {
-  _(_, _);
-  _(_, a);
-  digitalWrite(_, _);
-  analogWrite(_, b);
+  digitalWrite(dirR, HIGH);
+  analogWrite(speedR, a);
+  digitalWrite(dirL, LOW);
+  analogWrite(speedL, b);
 }
 
-void stop()
+void stop() 
 {
-  _(_, _);
-  analogWrite(_, 0);
+  analogWrite(speedR, 0);
+  analogWrite(speedL, 0);
 }
 
 void loop()
@@ -78,7 +78,7 @@ void loop()
   {
     stop();
     delay(_);
-    _(_, _); //reverse
+    _(_, _); //backward
     delay(_);
     _(_, _); //turn
     delay(_);
